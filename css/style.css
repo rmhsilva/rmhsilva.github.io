@@ -953,8 +953,15 @@ section.aboutme > header .pic > div img {
   -ms-border-radius: 3px;
   border-radius: 3px;
 }
-@media only screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   body {
     max-width: 768px;
+  }
+  section.home {
+    margin-top: -20px;
+  }
+  section.home img.logo {
+    width: 130px;
+    margin-bottom: 30px;
   }
 }
