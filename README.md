@@ -1,6 +1,6 @@
 rmhsilva.github.io
 ==================
 
-My static site, at rmhsilva.com
+Website at [rmhsilva.com](http://rmhsilva.com)
 
-Generated with Wintersmith
+Generated with Wintersmith using Jade + Stylus.
