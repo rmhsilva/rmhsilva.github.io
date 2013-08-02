@@ -1,0 +1,11 @@
+--- ltib.orig	2013-06-26 11:19:25.718209376 +0000
++++ ltib	2013-06-26 11:19:39.461861960 +0000
+@@ -2384,7 +2384,7 @@
+     $cf->{dodrop}        = 'no';
+     $cf->{prefix}        = "$cf->{defpfx}/usr";
+     $cf->{sysconfdir}    = "$cf->{defpfx}/etc";
+-    $hrpm                = system('rpm --force-debian 2>/dev/null') == 0 ? 
++    $hrpm                = system('rpm -v --force-debian 2>/dev/null') == 0 ? 
+                                   'rpm --force-debian' : 'rpm';
+     chomp($cf->{rpmbuild} = `which rpmbuild 2>/dev/null` || "$hrpm\n");
+     $cf->{rpm}           = $hrpm;

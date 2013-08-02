@@ -1,0 +1,25 @@
+--- dist/lfs-5.1/mtd-utils/mtd-utils-20060302.spec	2010-11-12 03:11:05.000000000 +0000
++++ mtd-utils-20060302.spec	2013-06-26 12:50:54.027044713 +0000
+@@ -3,12 +3,13 @@
+ Summary         : Memory Technology Device tools
+ Name            : mtd-utils
+ Version         : 20060302
+-Release         : 2
++Release         : 3
+ License         : GPL
+ Vendor          : Freescale
+ Packager        : Stuart Hughes
+ Group           : Applications/System
+ Source          : %{name}-%{version}.tar.bz2
++Patch1          : mtd-utils-cf-byteswap_h.patch
+ Patch2          : mtd-utils-20060302-find_fs_entry.patch
+ Patch3          : mtd-utils-20060302-eraseall.patch
+ Patch4          : mtd-utils-20060302-eraseall_prog.patch
+@@ -24,6 +25,7 @@
+ 
+ %Prep
+ %setup -n mtd
++%patch1 -p1
+ %patch2 -p1
+ %patch3 -p1
+ %patch4 -p1

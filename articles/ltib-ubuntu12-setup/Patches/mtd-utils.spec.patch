@@ -1,0 +1,40 @@
+--- dist/lfs-5.1/mtd-utils/mtd-utils.spec	2010-11-12 03:11:05.000000000 +0000
++++ mtd-utils.spec	2013-06-26 12:50:54.027044713 +0000
+@@ -2,14 +2,20 @@
+ 
+ Summary		: Memory Technology Device tools
+ Name		: mtd-utils
+-Version		: 201006
+-Release		: 1
++Version		: 20080618
++Release		: 3
+ License		: GPL
+-Vendor		: Freescale Semiconductor
++Vendor		: Freescale
+ Packager	: Ross Wille
+ Group		: Applications/System
+ Source		: %{name}-%{version}.tar.bz2
+-Patch1          : mtd-utils-201006-4K-218-224-support.patch
++Patch1		: mtd-utils-cf-byteswap_h.patch
++Patch2		: mtd-utils-20060302-eraseall.patch
++Patch3		: mtd-utils-20060302-eraseall_prog.patch
++Patch4		: mtd-utils-20080618-pres-int-files.patch
++Patch5		: mtd-utils-20080618-macro-incr.patch
++Patch6		: mtd-utils-20080618-add-ecclayout.patch
++Patch10     : mtd-utils-20080618-gcc-4.6.1-01.patch
+ BuildRoot	: %{_tmppath}/%{name}
+ Prefix		: %{pfx}
+ 
+@@ -23,6 +29,12 @@
+ %Prep
+ %setup -n %{name}
+ %patch1 -p1
++%patch2 -p2
++%patch3 -p2
++%patch4 -p1
++%patch5 -p1
++%patch6 -p1
++%patch10 -p1
+ 
+ %Build
+ make -j1 WITHOUT_XATTR=1

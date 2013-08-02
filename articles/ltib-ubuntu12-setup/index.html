@@ -1,0 +1,212 @@
+<!DOCTYPE html><!--[if lt IE 7]>
+<html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"></html><![endif]--><!--[if IE 7]>
+<html lang="en" class="no-js lt-ie9 lt-ie8"></html><![endif]--><!--[if IE 8]>
+<html lang="en" class="no-js lt-ie9"></html><![endif]-->
+<!-- [if gt IE 8] <!-->
+<html lang="en" class="no-js">
+  <!-- <![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>RMHS: Articles
+      : LTIB Build and Install Instructions
+    </title>
+    <meta name="description" content="Ricardo M. H. da Silva is an electronic engineer who also enjoys a bit of web design, rock climbing, and various other sporty or geeky activities">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Ricardo M. H. da Silva">
+    <link rel="alternate" href="http://rmhsilva.com/feed.xml" type="application/rss+xml" title="Ricardo M. H. da Silva is an electronic engineer who also enjoys a bit of web design, rock climbing, and various other sporty or geeky activities">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/vendor/modernizr-custom-min.js"></script>
+  </head>
+  <body class="preload">
+    <div id="topbar">
+      <ul class="nav">
+              <li><a href="/aboutme/">About</a></li>
+              <li><a href="/projects/">Projects</a></li>
+              <li><a href="/articles/" class="current">Articles</a></li>
+      </ul>
+    </div>
+    <div id="content">
+      <section class="articles focus">
+        <div class="article-list"><a href="/articles/this-website/" class="article">
+            <h2>Static sites and Node.js</h2>
+            <p class="date">22. July 2013</p>
+            <div class="intro"><p>This website, and fixing silly default&nbsp;behaviour.</p>
+</div></a><a href="/articles/speech-recognition-on-embedded-hw/" class="article">
+            <h2>Hidden Markov Model based Speech Recognition on Embedded Hardware</h2>
+            <p class="date">28. June 2013</p>
+            <div class="intro"><p>My university third year project (dissertation) was an investigation into the capabilities of embedded hardware for performing modern speech recognition.  This article summarises my progress and&nbsp;findings.</p>
+</div></a><a href="/articles/ltib-ubuntu12-setup/" class="article current">
+            <h2>LTIB Build and Install Instructions</h2>
+            <p class="date">06. January 2013</p>
+            <div class="intro"><p>A terse guide to setting up the <span class="caps">LTIB</span> build host environment.  Nowadays you should probably be using something more modern though, like&nbsp;OpenEmbedded.</p>
+</div></a>
+        </div>
+        <article class="main-article">
+          <h1>LTIB Build and Install Instructions</h1>
+          <section class="content"><p>A terse guide to setting up the <span class="caps">LTIB</span> build host environment.  Nowadays you should probably be using something more modern though, like&nbsp;OpenEmbedded.</p>
+<hr>
+<p><a href="http://ltib.org/"><span class="caps">LTIB</span></a> is a (fairly old — their website is still using Comic Sans) tool that helps building Linux board support packages (BSPs). A more modern approach to this is to use a tool such as <a href="http://www.openembedded.org/wiki/Main_Page">OpenEmbedded</a>. As such, this information probably doesn&#39;t help too many people. Anyway, here it&nbsp;is.</p>
+<p>Setup&nbsp;used:</p>
+<ul>
+<li>Vagrant environment with Virtualbox&nbsp;provider</li>
+<li>Ubuntu ‘Precise 32’ (2012 <span class="caps">LTS</span> release)&nbsp;32bit</li>
+<li>uname -sr: <code>Linux 3.2.0-23-generic-pae</code></li>
+</ul>
+<p>Official instructions for setting up <span class="caps">LTIB</span>: <a href="http://elk.informatik.fh-augsburg.de/gnublin-cdrom/Linux/L2.6.35_10.12.01_SDK_docs/ltib_build_host_setup.pdf"><a href="http://elk.informatik.fh-augsburg.de/gnublin-cdrom/Linux/L2.6.35_10.12.01_SDK_docs/ltib_build_host_setup.pdf">http://elk.informatik.fh-augsburg.de/gnublin-cdrom/Linux/L2.6.35_10.12.01_SDK_docs/ltib_build_host_setup.pdf</a></a></p>
+<p>These files are required and present inside the vagrant directory used for this&nbsp;process:</p>
+<ul>
+<li>L2.6.35_10.11.01_ER_source.tar (from the Freescale&nbsp;website)</li>
+<li>ltib.patch</li>
+<li>Ltibutils.pm.patch</li>
+<li>ubuntu-ltib-patch/</li>
+<li>Vagrantfile</li>
+</ul>
+<h2>Vagrant</h2>
+<p><a href="http://www.vagrantup.com/">Vagrant</a> is optional — it provides a nice way to package up a Virtualbox machine, so that it may be distributed as a single file.  The downside is that this file will be fairly large (~<span class="caps">4GB</span>) as it contains the complete system.  It&#39;s simple to add and use the&nbsp;file:</p>
+<pre><code>vagrant add ltibbox http://users.ecs.soton.ac.uk/rmds1g10/ltib/ltibbox.box
+vagrant init ltibbox
+vagrant up
+vagrant ssh
+vagrant halt</code></pre>
+<p>The <code>vagrant ssh</code> command connects to the running box (must be executed from the directory containing the Vagrantfile).  By default, Vagrant mounts the working directory at <code>/vagrant</code> in the virtual&nbsp;machine.</p>
+<p>Alternatively, it may be better to distribute a build script, which downloads and installs <span class="caps">LTIB</span> into the precise32 box that comes with Vagrant.  This is the box used&nbsp;here.</p>
+<p>Note: In a clean precise32 Vagrant box, the default username and password are both&nbsp;‘vagrant’.</p>
+<p><em>These instructions proceed assuming they are being performed on a new precise32 Vagrant&nbsp;box.</em></p>
+<h2>Requirements</h2>
+<p>Before doing anything, upgrade the&nbsp;system:</p>
+<pre><code>sudo apt-get update &amp;&amp; sudo apt-get upgrade</code></pre>
+<p>Install a few bits that aren&#39;t absolutely necessary, but are&nbsp;preferable:</p>
+<ul>
+<li>Vim <code>sudo apt-get install vim</code></li>
+<li>Git <code>sudo apt-get insall git</code></li>
+</ul>
+<p>We‘ll install <span class="caps">LTIB</span> into the /opt/freescale directory, so we’ll need to change the /opt permissions to allow&nbsp;us.</p>
+<pre><code>sudo mkdir /opt/freescale &amp;&amp; sudo chown -R vagrant:vagrant /opt/freescale</code></pre>
+<p>We&#39;re using the Freescale <span class="caps">EVK</span> Board Support Package (BSP) as a base for the setup, which is downloaded from the Freescale website.  The file is named something like <code>L2.6.35_10.11.01_ER_source.tar</code>.  This includes the <span class="caps">LTIB</span> setup, and kernel files specific to the iMX23&nbsp;chip.</p>
+<h3><span class="caps">LTIB</span>&nbsp;dependencies</h3>
+<p>There are quite a few dependencies for <span class="caps">LTIB</span>, see the official install instructions mentioned above for more details. The following lines should handle it&nbsp;all:</p>
+<pre><code>sudo -s
+apt-get install gettext libgtk2.0-dev rpm bison m4 libfreetype6-dev
+apt-get install libdbus-glib-1-dev liborbit2-dev intltool
+apt-get install ccache ncurses-dev zlib1g zlib1g-dev gcc g++ libtool patchutils
+apt-get install uuid-dev liblzo2-dev tcl
+apt-get install libarchive-dev bsdtar</code></pre>
+<p>Or in one&nbsp;command:</p>
+<pre><code>sudo apt-get install gettext libgtk2.0-dev rpm bison m4 libfreetype6-dev libdbus-glib-1-dev liborbit2-dev intltool ccache ncurses-dev zlib1g zlib1g-dev gcc g++ libtool patchutils uuid-dev liblzo2-dev tcl libarchive-dev bsdtar</code></pre>
+<p><span class="caps">LTIB</span> uses the RPM package manager, which requires root access.  Add the following line to the <a href="http://ubuntu-tutorials.com/2007/03/01/allowing-limited-sudo-access-with-visudo/">sudoers</a> file (we&#39;re using the Vagrant default vagrant:vagrant user:password&nbsp;setup):</p>
+<pre><code>%vagrant ALL = NOPASSWD: /usr/bin/rpm, /opt/freescale/ltib/usr/bin/rpm</code></pre>
+<h2>Install&nbsp;<span class="caps">LTIB</span></h2>
+<p>Assuming the <span class="caps">BSP</span> tarball is downloaded as L2.6.35_10.11.01_ER_source.tar, extract it&nbsp;with:</p>
+<pre><code>tar -xvf L2.6.35_10.11.01_ER_source</code></pre>
+<p>Then install <span class="caps">LTIB</span>&nbsp;with:</p>
+<pre><code>cd L2.6.35_10.11.01_ER_source
+./install</code></pre>
+<p>You&#39;ll have to accept the license conditions, and type <code>/opt/freescale</code> when prompted for the installation directory.  <span class="caps">LTIB</span> will be installed into&nbsp;/opt/freescale/ltib.</p>
+<h2>Patch files for&nbsp;L&#39;Imperatrice</h2>
+<p><span class="caps">LTIB</span> must be patched to run on newer versions of Ubuntu.  A very detailed explanation of this is available online, and included here (LTIB on Ubuntu 11.10.pdf), along with a set of patch files.  Copy the patch files into the ltib directory, and then the following commands should perform the&nbsp;necessary.</p>
+<pre><code>patch ltib &lt; ltib.patch
+patch bin/Ltibutils.pm &lt; Ltibutils.pm.patch
+patch dist/lfs-5.1/wget/wget.spec &lt; wget.spec.patch
+patch dist/lfs-5.1/mtd-utils/mtd-utils.spec &lt; mtd-utils.spec.patch
+patch dist/lfs-5.1/mtd-utils/mtd-utils-20060302.spec &lt; mtd-utils-20060302.spec.patch
+patch config/platform/host/pkg_map &lt; pkg_map.patch</code></pre>
+<ul>
+<li>ltib must be patched to correctly detect the rpm&nbsp;version.</li>
+<li>Ltibutils.pm must be patched to correctly detect the presence of newer versions of various libraries (zlib and&nbsp;glibc).</li>
+<li>wget.spec must be patched as new versions of wget do not allow enabling ssl at compile&nbsp;time.</li>
+<li>mtd-utils is pretty broken.  The .spec file must be replaced, as well as the -20060302.spec file, and the package mapping must be&nbsp;updated.</li>
+</ul>
+<p>In addition, the patches supplied with the above <span class="caps">PDF</span> must be installed, by running install-patches.sh.  This is easily done by copying the patches folder to /opt/freescale, and then running the&nbsp;command:</p>
+<pre><code>cp -r /vagrant/ubuntu-ltib-patch/ /opt/freescale/
+cd /opt/freescale/ubuntu-ltib-patch
+./install-patches.sh</code></pre>
+<p>The new Ubuntu system file structure is slightly different from older versions, but can be fixed with a symbolic&nbsp;link:</p>
+<pre><code>sudo ln -s /usr/include/i386-linux-gnu/sys /usr/include/sys</code></pre>
+<p>In addition, there are several differences between the <span class="caps">EVK</span> and L&#39;Imperatrice.  These files should be patched to correct various&nbsp;things:</p>
+<pre><code>patch -p1 rpm/BUILD/linux-2.6.35.3/arch/arm/mach-mx23/device.c device.c.patch
+.....
+.....</code></pre>
+<p>Clear up any permissions&nbsp;errors</p>
+<pre><code>sudo chmod -R 777 .</code></pre>
+<p>Once <span class="caps">LTIB</span> is correctly patched, running <code>./ltib</code> should complete without&nbsp;error.</p>
+<h2>Building a&nbsp;<span class="caps">BSP</span></h2>
+<p>Inside the <span class="caps">LTIB</span> directory, the <code>ltib</code> executable is the main <span class="caps">LTIB</span> program, which performs all the necessary building and&nbsp;packaging.</p>
+<p>Configure the system&nbsp;with:</p>
+<pre><code>./ltib -m config</code></pre>
+<ol>
+<li>Select the imx233 option, with the Min&nbsp;profile</li>
+<li>Configure everything else&nbsp;needed!</li>
+</ol>
+<p><span class="caps">TODO</span>: document option&nbsp;selection</p>
+<ul>
+<li>correct bootline&nbsp;setting</li>
+<li>enabling&nbsp;<span class="caps">GPIO</span></li>
+<li>…</li>
+<li>…</li>
+</ul>
+<p>Build the package (i.e., create a rootfs) and&nbsp;bootstream:</p>
+<pre><code>./ltib
+./ltib -p boot_stream.spec -f</code></pre>
+<p>Copy file system to a raw img&nbsp;file</p>
+<pre><code>dd if=/dev/zero of=imxboot.img bs=512 count=4
+dd if=rootfs/boot/imx23_linux.sb of=imxboot.img ibs=512 seek=4 conv=sync,notrunc</code></pre>
+<p>Assuming the <span class="caps">SD</span> card is <a href="https://secure.ecs.soton.ac.uk/notes/elec2032/D4/Micro%20Arcana/L%27Imperatrice/QuickStartv2.txt">set up correctly</a>, copy the boot partition and rootfs.  Replace <code>sdx</code> with the correct file descriptor for your <span class="caps">SD</span>&nbsp;card:</p>
+<pre><code>sudo dd if=imxboot.img of=/dev/sdx1
+sudo umount /dev/sdx2
+sudo mkfs.ext2 /dev/sdx2
+sudo mount /dev/sdx2 /media/mmc
+sudo cp -a rootfs/* /media/mmc
+sudo umount /dev/sdx2</code></pre>
+<p>3 executable files (updateBootImage, cpBootImageMMC, cpRootFSMMC) are available, which make performing the above tasks&nbsp;easier.</p>
+<h3>Cross&nbsp;compiling</h3>
+<p>To compile code that will work on L&#39;Imperatrice, you need to use the binaries installed by ltib.  They are normally stored&nbsp;in:</p>
+<pre><code>/opt/freescale/usr/local/gcc-x-glibc-x-x/arm-none-gnueabi/arm-none-linux-gnueabi/bin</code></pre>
+<p>Running the following command will add this to your&nbsp;path:</p>
+<pre><code>PATH=/opt/freescale/usr/local/gcc-4.1.2-glibc-2.5-nptl-3/arm-none-linux-gnueabi/arm-none-linux-gnueabi/bin/:$PATH</code></pre>
+<p>Then running ‘gcc’ will automatically use the arm&nbsp;version.</p>
+<h3>Adding a&nbsp;package</h3>
+<p>Read: <a href="http://ltib.org/documentation-LtibFaq"><a href="http://ltib.org/documentation-LtibFaq">http://ltib.org/documentation-LtibFaq</a></a>.<br>In many cases you may want to build a library or package to install on L&#39;Imperatrice.  For example, you may want to perform real time Fast Fourier Transforms using the <span class="caps">FFTW</span> library, which has native support for ARMv5 devices.  The general procedure&nbsp;is:</p>
+<ul>
+<li>Prepare the source&nbsp;files</li>
+<li>Build and install the package to the rootfs using&nbsp;ltib</li>
+<li>Add -I and -L flags to gcc if you want to cross compile with the libraries you&#39;ve just&nbsp;installed.</li>
+</ul>
+<h2>Notes</h2>
+<ul>
+<li>ltib <span class="caps">CVS</span> for patched spec files etc: <a href="http://cvs.savannah.gnu.org/viewvc/ltib/ltib/dist/lfs-5.1/"><a href="http://cvs.savannah.gnu.org/viewvc/ltib/ltib/dist/lfs-5.1/">http://cvs.savannah.gnu.org/viewvc/ltib/ltib/dist/lfs-5.1/</a></a></li>
+<li>patches for 12.04: <a href="https://community.freescale.com/thread/300902"><a href="https://community.freescale.com/thread/300902">https://community.freescale.com/thread/300902</a></a></li>
+<li>mtd-utils failure: <a href="http://lists.gnu.org/archive/html/ltib/2009-07/msg00133.html"><a href="http://lists.gnu.org/archive/html/ltib/2009-07/msg00133.html">http://lists.gnu.org/archive/html/ltib/2009-07/msg00133.html</a></a></li>
+<li>wget info: <a href="https://community.freescale.com/thread/289198"><a href="https://community.freescale.com/thread/289198">https://community.freescale.com/thread/289198</a></a></li>
+<li>other fixes: <a href="https://community.freescale.com/message/271839#271839"><a href="https://community.freescale.com/message/271839#271839">https://community.freescale.com/message/271839#271839</a></a></li>
+</ul>
+<p>Author: Ricardo da Silva (<a href="mailto:rmds1g10@soton.ac.uk">rmds1g10@soton.ac.uk</a>)<br>Supervisor: Professor Steve&nbsp;Gunn </p>
+</section>
+        </article>
+      </section>
+    </div>
+    <div id="footer">
+      <div class="name"><a href="/">Ricardo M. H. da Silva</a></div>
+      <div class="right">
+        <div class="copy">&copy; Ricardo M. H. da Silva. All rights reserved.</div>
+      </div>
+      <div class="media"> <a href="mailto:ric@rmhsilva.com">ric@rmhsilva.com</a><span> &nbsp;//&nbsp;</span><a href="http://www.linkedin.com/pub/ricardo-da-silva/72/ba0/a41" target="_blank">LinkedIn</a><span> &nbsp;//&nbsp;</span><a href="/feed.xml">RSS</a></div>
+    </div><!-- Re-enable animations: -->
+    <script>
+      window.onload = function() {
+        document.getElementsByTagName('body')[0].removeAttribute('class');
+      }
+      
+    </script>
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-42722262-1','rmhsilva.com');
+      ga('send','pageview');
+    </script>
+  </body>
+</html>

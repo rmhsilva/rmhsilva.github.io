@@ -1,0 +1,11 @@
+--- wget.spec.orig	2013-06-26 13:02:41.398051413 +0000
++++ wget.spec	2013-06-26 13:02:51.949836010 +0000
+@@ -19,7 +19,7 @@
+ %setup 
+ 
+ %Build
+-./configure --prefix=%{_prefix} --sysconfdir=%{_sysconfdir} --host=$CFGHOST --mandir=%{_mandir}
++./configure --without-ssl --prefix=%{_prefix} --sysconfdir=%{_sysconfdir} --host=$CFGHOST --mandir=%{_mandir}
+ make
+ 
+ %Install

@@ -1,0 +1,97 @@
+<!DOCTYPE html><!--[if lt IE 7]>
+<html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"></html><![endif]--><!--[if IE 7]>
+<html lang="en" class="no-js lt-ie9 lt-ie8"></html><![endif]--><!--[if IE 8]>
+<html lang="en" class="no-js lt-ie9"></html><![endif]-->
+<!-- [if gt IE 8] <!-->
+<html lang="en" class="no-js">
+  <!-- <![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>RMHS: Articles
+    </title>
+    <meta name="description" content="Ricardo M. H. da Silva is an electronic engineer who also enjoys a bit of web design, rock climbing, and various other sporty or geeky activities">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Ricardo M. H. da Silva">
+    <link rel="alternate" href="http://rmhsilva.com/feed.xml" type="application/rss+xml" title="Ricardo M. H. da Silva is an electronic engineer who also enjoys a bit of web design, rock climbing, and various other sporty or geeky activities">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/vendor/modernizr-custom-min.js"></script>
+  </head>
+  <body class="preload">
+    <div id="topbar">
+      <ul class="nav">
+              <li><a href="/aboutme/">About</a></li>
+              <li><a href="/projects/">Projects</a></li>
+              <li><a href="/articles/" class="current">Articles</a></li>
+      </ul>
+    </div>
+    <div id="content">
+      <section class="articles">
+        <div class="article-list"><a href="/articles/this-website/" class="article current">
+            <h2>Static sites and Node.js</h2>
+            <p class="date">22. July 2013</p>
+            <div class="intro"><p>This website, and fixing silly default&nbsp;behaviour.</p>
+</div></a><a href="/articles/speech-recognition-on-embedded-hw/" class="article">
+            <h2>Hidden Markov Model based Speech Recognition on Embedded Hardware</h2>
+            <p class="date">28. June 2013</p>
+            <div class="intro"><p>My university third year project (dissertation) was an investigation into the capabilities of embedded hardware for performing modern speech recognition.  This article summarises my progress and&nbsp;findings.</p>
+</div></a><a href="/articles/ltib-ubuntu12-setup/" class="article">
+            <h2>LTIB Build and Install Instructions</h2>
+            <p class="date">06. January 2013</p>
+            <div class="intro"><p>A terse guide to setting up the <span class="caps">LTIB</span> build host environment.  Nowadays you should probably be using something more modern though, like&nbsp;OpenEmbedded.</p>
+</div></a>
+        </div>
+        <article class="main-article">
+          <h1>Static sites and Node.js</h1>
+          <section class="content"><p>This website, and fixing silly default&nbsp;behaviour.</p>
+<hr>
+<p>This website is built using <a href="http://wintersmith.io/">Wintersmith</a>, which is a Node.js based static website generator.  It&#39;s hosted on <a href="https://github.com/rmhsilva/rmhsilva.github.io">github</a>,&nbsp;yay.</p>
+<h3>Why&nbsp;Node.js?</h3>
+<p>Because I like it.  And that&#39;s all there is to it really.  I could have gone with a more established solution (Jekyll, Hyde, etc), but I prefer to work with Javascript, and DocPad is too heavy-weight for&nbsp;me.</p>
+<h3>Why&nbsp;Static?</h3>
+<p>Because actually… I don&#39;t need anything dynamic right now, and if I did, it would be relatively easy to&nbsp;add.</p>
+<h3>Automatic&nbsp;authors</h3>
+<p>One of the issues I have with Wintersmith (and other static blog generators) is the fact that you must put the ‘author’ and ‘template’ metadata into every blog post.  This is a bit unnecessary when there&#39;s only one&nbsp;author…</p>
+<p>So I pulled together a Wintersmith plugin to handle&nbsp;mine:</p>
+<pre><code class="lang-coffeescript">module.<span class="function"><span class="title">exports</span></span> = (env, done) -&gt;
+
+  <span class="class"><span class="keyword">class</span> <span class="title">MyArticle</span> <span class="keyword">extends</span> <span class="title">env</span>.<span class="title">plugins</span>.<span class="title">MarkdownPage</span></span>
+    <span class="comment"># We only need to overwrite the constructor</span>
+    constructor: (<span class="property">@filepath</span>, <span class="property">@metadata</span>, <span class="property">@markdown</span>) -&gt;
+      <span class="property">@metadata</span>.template = <span class="string">'article.jade'</span> <span class="keyword">unless</span> <span class="property">@metadata</span>.template
+      <span class="property">@metadata</span>.author = <span class="string">'rmhs'</span> <span class="keyword">unless</span> <span class="property">@metadata</span>.author
+      <span class="keyword">super</span> <span class="property">@filepath</span>, <span class="property">@metadata</span>, <span class="property">@markdown</span>
+
+  env.registerContentPlugin <span class="string">'pages'</span>, <span class="string">'articles/**/*.*(md|markdown)'</span>, MyArticle
+
+  done()</code></pre>
+<p>This essentially intercepts the article before it is handed to the MarkdownPage built-in plugin, and adds the author and article template&nbsp;automatically.</p>
+</section>
+        </article>
+      </section>
+    </div>
+    <div id="footer">
+      <div class="name"><a href="/">Ricardo M. H. da Silva</a></div>
+      <div class="right">
+        <div class="copy">&copy; Ricardo M. H. da Silva. All rights reserved.</div>
+      </div>
+      <div class="media"> <a href="mailto:ric@rmhsilva.com">ric@rmhsilva.com</a><span> &nbsp;//&nbsp;</span><a href="http://www.linkedin.com/pub/ricardo-da-silva/72/ba0/a41" target="_blank">LinkedIn</a><span> &nbsp;//&nbsp;</span><a href="/feed.xml">RSS</a></div>
+    </div><!-- Re-enable animations: -->
+    <script>
+      window.onload = function() {
+        document.getElementsByTagName('body')[0].removeAttribute('class');
+      }
+      
+    </script>
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-42722262-1','rmhsilva.com');
+      ga('send','pageview');
+    </script>
+  </body>
+</html>
