@@ -15,28 +15,6 @@
       <guid isPermaLink="true">http://rmhsilva.com/articles/this-website/</guid>
       <author></author>
       <description>&lt;p&gt;This website, and fixing silly default behaviour.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;This website is built using &lt;a href=&quot;http://wintersmith.io/&quot;&gt;Wintersmith&lt;/a&gt;, which is a Node.js based static website generator.  It&amp;#39;s hosted on &lt;a href=&quot;https://github.com/rmhsilva/rmhsilva.github.io&quot;&gt;github&lt;/a&gt;, yay.&lt;/p&gt;
-&lt;h3&gt;Why Node.js?&lt;/h3&gt;
-&lt;p&gt;Because I like it.  And that&amp;#39;s all there is to it really.  I could have gone with a more established solution (Jekyll, Hyde, etc), but I prefer to work with Javascript, and DocPad is too heavy-weight for me.&lt;/p&gt;
-&lt;h3&gt;Why Static?&lt;/h3&gt;
-&lt;p&gt;Because actually… I don&amp;#39;t need anything dynamic right now, and if I did, it would be relatively easy to add.&lt;/p&gt;
-&lt;h3&gt;Automatic authors&lt;/h3&gt;
-&lt;p&gt;One of the issues I have with Wintersmith (and other static blog generators) is the fact that you must put the ‘author’ and ‘template’ metadata into every blog post.  This is a bit unnecessary when there&amp;#39;s only one author…&lt;/p&gt;
-&lt;p&gt;So I pulled together a Wintersmith plugin to handle mine:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-coffeescript&quot;&gt;module.&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;exports&lt;/span&gt;&lt;/span&gt; = (env, done) -&amp;gt;
-
-  &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;MyArticle&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;env&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;plugins&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;MarkdownPage&lt;/span&gt;&lt;/span&gt;
-    &lt;span class=&quot;comment&quot;&gt;# We only need to overwrite the constructor&lt;/span&gt;
-    constructor: (&lt;span class=&quot;property&quot;&gt;@filepath&lt;/span&gt;, &lt;span class=&quot;property&quot;&gt;@metadata&lt;/span&gt;, &lt;span class=&quot;property&quot;&gt;@markdown&lt;/span&gt;) -&amp;gt;
-      &lt;span class=&quot;property&quot;&gt;@metadata&lt;/span&gt;.template = &lt;span class=&quot;string&quot;&gt;'article.jade'&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;property&quot;&gt;@metadata&lt;/span&gt;.template
-      &lt;span class=&quot;property&quot;&gt;@metadata&lt;/span&gt;.author = &lt;span class=&quot;string&quot;&gt;'rmhs'&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;property&quot;&gt;@metadata&lt;/span&gt;.author
-      &lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt; &lt;span class=&quot;property&quot;&gt;@filepath&lt;/span&gt;, &lt;span class=&quot;property&quot;&gt;@metadata&lt;/span&gt;, &lt;span class=&quot;property&quot;&gt;@markdown&lt;/span&gt;
-
-  env.registerContentPlugin &lt;span class=&quot;string&quot;&gt;'pages'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'articles/**/*.*(md|markdown)'&lt;/span&gt;, MyArticle
-
-  done()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This essentially intercepts the article before it is handed to the MarkdownPage built-in plugin, and adds the author and article template automatically.&lt;/p&gt;
 </description>
     </item>
     <item>
@@ -46,17 +24,6 @@
       <guid isPermaLink="true">http://rmhsilva.com/articles/speech-recognition-on-embedded-hw/</guid>
       <author></author>
       <description>&lt;p&gt;My university third year project (dissertation) was an investigation into the capabilities of embedded hardware for performing modern speech recognition.  This article summarises my progress and findings.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;The final report is available for download &lt;a href=&quot;http://rmhsilva.com/articles/speech-recognition-on-embedded-hw/Final_Report.pdf&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;h2&gt;Overview (adapted abstract)&lt;/h2&gt;
-&lt;p&gt;The aim is to investigate speech recognition on embedded hardware, and in particular, Hidden Markov Based speech recognition. The project makes use of two new electronic boards, based on a Spartan 3 FPGA and an ARMv5 Linux applications processor, that are currently under development at the University of Southampton.&lt;/p&gt;
-&lt;p&gt;Speech data is pre-processed in Linux, by performing spectral analysis followed by a Discrete Cosine transformed filterbank analysis, to produce Mel Frequency Cepstral Coefficients. Given this observation data, the FPGA performs the most computationally intensive part of a modern HMM based speech recognition system — evaluating the state emission probabilities.&lt;/p&gt;
-&lt;p&gt;It is shown that the FPGA is capable of performing these calculations faster than a software implementation on the Linux processor.&lt;/p&gt;
-&lt;h2&gt;Hardware&lt;/h2&gt;
-&lt;p&gt;The project involved a fairly wide variety of technology, but focussed on implementing a pipeline in SystemVerilog, and a controller application in C.  The overall system is shown below.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://rmhsilva.com/articles/speech-recognition-on-embedded-hw/System.png&quot; alt=&quot;Complete system overview&quot;&gt;&lt;/p&gt;
-&lt;p&gt;The L&amp;#39;Imperatrice board is an embedded Linux platform, and La Papessa is the FPGA development board. These are the two boards mentioned in the abstract.&lt;/p&gt;
-&lt;p&gt;Please see the report for an in depth discussion of the complete project.&lt;/p&gt;
 </description>
     </item>
     <item>
@@ -66,39 +33,6 @@
       <guid isPermaLink="true">http://rmhsilva.com/projects/node-buspirate/</guid>
       <author></author>
       <description>&lt;p&gt;Because I wanted to script my Bus Pirate, the Ruby bindings weren‘t working and I’d prefer not to use Python.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Get the project on &lt;a href=&quot;https://github.com/rmhsilva&quot;&gt;github&lt;/a&gt;.  It currently only supports UART and SPI, but it lets you do things like:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;#!&lt;span class=&quot;regexp&quot;&gt;/usr/&lt;/span&gt;bin/env node
-
-&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; BusPirate = require(&lt;span class=&quot;string&quot;&gt;'node-buspirate'&lt;/span&gt;);
-&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; pirate = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; BusPirate(&lt;span class=&quot;string&quot;&gt;'/dev/bus_pirate'&lt;/span&gt;);
-
-&lt;span class=&quot;comment&quot;&gt;// Connect to the Pirate&lt;/span&gt;
-pirate.on(&lt;span class=&quot;string&quot;&gt;'connected'&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;() {
-    pirate.uart.start({
-        baudrate: &lt;span class=&quot;number&quot;&gt;115200&lt;/span&gt;,
-        stop_bits: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,
-        data_bits: &lt;span class=&quot;number&quot;&gt;8&lt;/span&gt;  &lt;span class=&quot;comment&quot;&gt;// ... and other options&lt;/span&gt;
-    });
-});
-
-&lt;span class=&quot;comment&quot;&gt;// Configure peripherals and start echoing RX&lt;/span&gt;
-pirate.uart.on(&lt;span class=&quot;string&quot;&gt;'ready'&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;() {
-    pirate.config_periph(&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;,&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;,&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;,&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;);
-    pirate.uart.echo_rx(&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;);
-
-    setInterval(&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;() {
-        pirate.uart.write(&lt;span class=&quot;string&quot;&gt;'ping UART\r\n'&lt;/span&gt;);
-    }, &lt;span class=&quot;number&quot;&gt;3000&lt;/span&gt;);
-});
-
-pirate.uart.on(&lt;span class=&quot;string&quot;&gt;'data'&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(data) {
-    process.stdout.write(data);
-});&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;I&amp;#39;m planning on using it in the near future to talk to a pair of &lt;a href=&quot;http://www.anarenceramics.com/air/cc110l-air-module-boosterpack-embedded-antenna-module-anaren&quot;&gt;Anaren Air RF Modules&lt;/a&gt; that communicate over SPI.&lt;/p&gt;
-&lt;p&gt;Of course, this module also lets you control your Bus Pirate via a webserver (web-based BP GUI, anyone?), although I can‘t see why that’d be too useful really…&lt;/p&gt;
-&lt;h2&gt;Why???!!&lt;/h2&gt;
-&lt;p&gt;Yes, Javascript isn‘t the most common language used by hardware hackers, but I think it’ll be more common in the near future (&lt;a href=&quot;https://github.com/ecto/duino&quot;&gt;duino&lt;/a&gt; etc).  Besides, I like Node.js and Javascript in general, and as I said, the Ruby version was (is?) broken. Building this seemed a great way to improve my Javascript!&lt;/p&gt;
 </description>
     </item>
     <item>
@@ -108,142 +42,6 @@ pirate.uart.on(&lt;span class=&quot;string&quot;&gt;'data'&lt;/span&gt;, &lt;spa
       <guid isPermaLink="true">http://rmhsilva.com/articles/ltib-ubuntu12-setup/</guid>
       <author></author>
       <description>&lt;p&gt;A terse guide to setting up the LTIB build host environment.  Nowadays you should probably be using something more modern though, like OpenEmbedded.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;a href=&quot;http://ltib.org/&quot;&gt;LTIB&lt;/a&gt; is a (fairly old — their website is still using Comic Sans) tool that helps building Linux board support packages (BSPs). A more modern approach to this is to use a tool such as &lt;a href=&quot;http://www.openembedded.org/wiki/Main_Page&quot;&gt;OpenEmbedded&lt;/a&gt;. As such, this information probably doesn&amp;#39;t help too many people. Anyway, here it is.&lt;/p&gt;
-&lt;p&gt;Setup used:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Vagrant environment with Virtualbox provider&lt;/li&gt;
-&lt;li&gt;Ubuntu ‘Precise 32’ (2012 LTS release) 32bit&lt;/li&gt;
-&lt;li&gt;uname -sr: &lt;code&gt;Linux 3.2.0-23-generic-pae&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Official instructions for setting up LTIB: &lt;a href=&quot;http://elk.informatik.fh-augsburg.de/gnublin-cdrom/Linux/L2.6.35_10.12.01_SDK_docs/ltib_build_host_setup.pdf&quot;&gt;&lt;a href=&quot;http://elk.informatik.fh-augsburg.de/gnublin-cdrom/Linux/L2.6.35_10.12.01_SDK_docs/ltib_build_host_setup.pdf&quot;&gt;http://elk.informatik.fh-augsburg.de/gnublin-cdrom/Linux/L2.6.35_10.12.01_SDK_docs/ltib_build_host_setup.pdf&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;These files are required and present inside the vagrant directory used for this process:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;L2.6.35_10.11.01_ER_source.tar (from the Freescale website)&lt;/li&gt;
-&lt;li&gt;ltib.patch&lt;/li&gt;
-&lt;li&gt;Ltibutils.pm.patch&lt;/li&gt;
-&lt;li&gt;ubuntu-ltib-patch/&lt;/li&gt;
-&lt;li&gt;Vagrantfile&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Vagrant&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.vagrantup.com/&quot;&gt;Vagrant&lt;/a&gt; is optional — it provides a nice way to package up a Virtualbox machine, so that it may be distributed as a single file.  The downside is that this file will be fairly large (~4GB) as it contains the complete system.  It&amp;#39;s simple to add and use the file:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;vagrant add ltibbox http://users.ecs.soton.ac.uk/rmds1g10/ltib/ltibbox.box
-vagrant init ltibbox
-vagrant up
-vagrant ssh
-vagrant halt&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The &lt;code&gt;vagrant ssh&lt;/code&gt; command connects to the running box (must be executed from the directory containing the Vagrantfile).  By default, Vagrant mounts the working directory at &lt;code&gt;/vagrant&lt;/code&gt; in the virtual machine.&lt;/p&gt;
-&lt;p&gt;Alternatively, it may be better to distribute a build script, which downloads and installs LTIB into the precise32 box that comes with Vagrant.  This is the box used here.&lt;/p&gt;
-&lt;p&gt;Note: In a clean precise32 Vagrant box, the default username and password are both ‘vagrant’.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;These instructions proceed assuming they are being performed on a new precise32 Vagrant box.&lt;/em&gt;&lt;/p&gt;
-&lt;h2&gt;Requirements&lt;/h2&gt;
-&lt;p&gt;Before doing anything, upgrade the system:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Install a few bits that aren&amp;#39;t absolutely necessary, but are preferable:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Vim &lt;code&gt;sudo apt-get install vim&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Git &lt;code&gt;sudo apt-get insall git&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;We‘ll install LTIB into the /opt/freescale directory, so we’ll need to change the /opt permissions to allow us.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo mkdir /opt/freescale &amp;amp;&amp;amp; sudo chown -R vagrant:vagrant /opt/freescale&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We&amp;#39;re using the Freescale EVK Board Support Package (BSP) as a base for the setup, which is downloaded from the Freescale website.  The file is named something like &lt;code&gt;L2.6.35_10.11.01_ER_source.tar&lt;/code&gt;.  This includes the LTIB setup, and kernel files specific to the iMX23 chip.&lt;/p&gt;
-&lt;h3&gt;LTIB dependencies&lt;/h3&gt;
-&lt;p&gt;There are quite a few dependencies for LTIB, see the official install instructions mentioned above for more details. The following lines should handle it all:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo -s
-apt-get install gettext libgtk2.0-dev rpm bison m4 libfreetype6-dev
-apt-get install libdbus-glib-1-dev liborbit2-dev intltool
-apt-get install ccache ncurses-dev zlib1g zlib1g-dev gcc g++ libtool patchutils
-apt-get install uuid-dev liblzo2-dev tcl
-apt-get install libarchive-dev bsdtar&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Or in one command:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get install gettext libgtk2.0-dev rpm bison m4 libfreetype6-dev libdbus-glib-1-dev liborbit2-dev intltool ccache ncurses-dev zlib1g zlib1g-dev gcc g++ libtool patchutils uuid-dev liblzo2-dev tcl libarchive-dev bsdtar&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;LTIB uses the RPM package manager, which requires root access.  Add the following line to the &lt;a href=&quot;http://ubuntu-tutorials.com/2007/03/01/allowing-limited-sudo-access-with-visudo/&quot;&gt;sudoers&lt;/a&gt; file (we&amp;#39;re using the Vagrant default vagrant:vagrant user:password setup):&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;%vagrant ALL = NOPASSWD: /usr/bin/rpm, /opt/freescale/ltib/usr/bin/rpm&lt;/code&gt;&lt;/pre&gt;
-&lt;h2&gt;Install LTIB&lt;/h2&gt;
-&lt;p&gt;Assuming the BSP tarball is downloaded as L2.6.35_10.11.01_ER_source.tar, extract it with:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;tar -xvf L2.6.35_10.11.01_ER_source&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Then install LTIB with:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;cd L2.6.35_10.11.01_ER_source
-./install&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You&amp;#39;ll have to accept the license conditions, and type &lt;code&gt;/opt/freescale&lt;/code&gt; when prompted for the installation directory.  LTIB will be installed into /opt/freescale/ltib.&lt;/p&gt;
-&lt;h2&gt;Patch files for L&amp;#39;Imperatrice&lt;/h2&gt;
-&lt;p&gt;LTIB must be patched to run on newer versions of Ubuntu.  A very detailed explanation of this is available online, and included here (LTIB on Ubuntu 11.10.pdf), along with a set of patch files.  Copy the patch files into the ltib directory, and then the following commands should perform the necessary.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;patch ltib &amp;lt; ltib.patch
-patch bin/Ltibutils.pm &amp;lt; Ltibutils.pm.patch
-patch dist/lfs-5.1/wget/wget.spec &amp;lt; wget.spec.patch
-patch dist/lfs-5.1/mtd-utils/mtd-utils.spec &amp;lt; mtd-utils.spec.patch
-patch dist/lfs-5.1/mtd-utils/mtd-utils-20060302.spec &amp;lt; mtd-utils-20060302.spec.patch
-patch config/platform/host/pkg_map &amp;lt; pkg_map.patch&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;ltib must be patched to correctly detect the rpm version.&lt;/li&gt;
-&lt;li&gt;Ltibutils.pm must be patched to correctly detect the presence of newer versions of various libraries (zlib and glibc).&lt;/li&gt;
-&lt;li&gt;wget.spec must be patched as new versions of wget do not allow enabling ssl at compile time.&lt;/li&gt;
-&lt;li&gt;mtd-utils is pretty broken.  The .spec file must be replaced, as well as the -20060302.spec file, and the package mapping must be updated.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In addition, the patches supplied with the above PDF must be installed, by running install-patches.sh.  This is easily done by copying the patches folder to /opt/freescale, and then running the command:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;cp -r /vagrant/ubuntu-ltib-patch/ /opt/freescale/
-cd /opt/freescale/ubuntu-ltib-patch
-./install-patches.sh&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The new Ubuntu system file structure is slightly different from older versions, but can be fixed with a symbolic link:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo ln -s /usr/include/i386-linux-gnu/sys /usr/include/sys&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;In addition, there are several differences between the EVK and L&amp;#39;Imperatrice.  These files should be patched to correct various things:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;patch -p1 rpm/BUILD/linux-2.6.35.3/arch/arm/mach-mx23/device.c device.c.patch
-.....
-.....&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Clear up any permissions errors&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo chmod -R 777 .&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Once LTIB is correctly patched, running &lt;code&gt;./ltib&lt;/code&gt; should complete without error.&lt;/p&gt;
-&lt;h2&gt;Building a BSP&lt;/h2&gt;
-&lt;p&gt;Inside the LTIB directory, the &lt;code&gt;ltib&lt;/code&gt; executable is the main LTIB program, which performs all the necessary building and packaging.&lt;/p&gt;
-&lt;p&gt;Configure the system with:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;./ltib -m config&lt;/code&gt;&lt;/pre&gt;
-&lt;ol&gt;
-&lt;li&gt;Select the imx233 option, with the Min profile&lt;/li&gt;
-&lt;li&gt;Configure everything else needed!&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;TODO: document option selection&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;correct bootline setting&lt;/li&gt;
-&lt;li&gt;enabling GPIO&lt;/li&gt;
-&lt;li&gt;…&lt;/li&gt;
-&lt;li&gt;…&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Build the package (i.e., create a rootfs) and bootstream:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;./ltib
-./ltib -p boot_stream.spec -f&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Copy file system to a raw img file&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;dd if=/dev/zero of=imxboot.img bs=512 count=4
-dd if=rootfs/boot/imx23_linux.sb of=imxboot.img ibs=512 seek=4 conv=sync,notrunc&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Assuming the SD card is &lt;a href=&quot;https://secure.ecs.soton.ac.uk/notes/elec2032/D4/Micro%20Arcana/L%27Imperatrice/QuickStartv2.txt&quot;&gt;set up correctly&lt;/a&gt;, copy the boot partition and rootfs.  Replace &lt;code&gt;sdx&lt;/code&gt; with the correct file descriptor for your SD card:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo dd if=imxboot.img of=/dev/sdx1
-sudo umount /dev/sdx2
-sudo mkfs.ext2 /dev/sdx2
-sudo mount /dev/sdx2 /media/mmc
-sudo cp -a rootfs/* /media/mmc
-sudo umount /dev/sdx2&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;3 executable files (updateBootImage, cpBootImageMMC, cpRootFSMMC) are available, which make performing the above tasks easier.&lt;/p&gt;
-&lt;h3&gt;Cross compiling&lt;/h3&gt;
-&lt;p&gt;To compile code that will work on L&amp;#39;Imperatrice, you need to use the binaries installed by ltib.  They are normally stored in:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;/opt/freescale/usr/local/gcc-x-glibc-x-x/arm-none-gnueabi/arm-none-linux-gnueabi/bin&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Running the following command will add this to your path:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;PATH=/opt/freescale/usr/local/gcc-4.1.2-glibc-2.5-nptl-3/arm-none-linux-gnueabi/arm-none-linux-gnueabi/bin/:$PATH&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Then running ‘gcc’ will automatically use the arm version.&lt;/p&gt;
-&lt;h3&gt;Adding a package&lt;/h3&gt;
-&lt;p&gt;Read: &lt;a href=&quot;http://ltib.org/documentation-LtibFaq&quot;&gt;&lt;a href=&quot;http://ltib.org/documentation-LtibFaq&quot;&gt;http://ltib.org/documentation-LtibFaq&lt;/a&gt;&lt;/a&gt;.&lt;br&gt;In many cases you may want to build a library or package to install on L&amp;#39;Imperatrice.  For example, you may want to perform real time Fast Fourier Transforms using the FFTW library, which has native support for ARMv5 devices.  The general procedure is:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Prepare the source files&lt;/li&gt;
-&lt;li&gt;Build and install the package to the rootfs using ltib&lt;/li&gt;
-&lt;li&gt;Add -I and -L flags to gcc if you want to cross compile with the libraries you&amp;#39;ve just installed.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Notes&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;ltib CVS for patched spec files etc: &lt;a href=&quot;http://cvs.savannah.gnu.org/viewvc/ltib/ltib/dist/lfs-5.1/&quot;&gt;&lt;a href=&quot;http://cvs.savannah.gnu.org/viewvc/ltib/ltib/dist/lfs-5.1/&quot;&gt;http://cvs.savannah.gnu.org/viewvc/ltib/ltib/dist/lfs-5.1/&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;patches for 12.04: &lt;a href=&quot;https://community.freescale.com/thread/300902&quot;&gt;&lt;a href=&quot;https://community.freescale.com/thread/300902&quot;&gt;https://community.freescale.com/thread/300902&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;mtd-utils failure: &lt;a href=&quot;http://lists.gnu.org/archive/html/ltib/2009-07/msg00133.html&quot;&gt;&lt;a href=&quot;http://lists.gnu.org/archive/html/ltib/2009-07/msg00133.html&quot;&gt;http://lists.gnu.org/archive/html/ltib/2009-07/msg00133.html&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;wget info: &lt;a href=&quot;https://community.freescale.com/thread/289198&quot;&gt;&lt;a href=&quot;https://community.freescale.com/thread/289198&quot;&gt;https://community.freescale.com/thread/289198&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;other fixes: &lt;a href=&quot;https://community.freescale.com/message/271839#271839&quot;&gt;&lt;a href=&quot;https://community.freescale.com/message/271839#271839&quot;&gt;https://community.freescale.com/message/271839#271839&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Author: Ricardo da Silva (&lt;a href=&quot;mailto:rmds1g10@soton.ac.uk&quot;&gt;rmds1g10@soton.ac.uk&lt;/a&gt;)&lt;br&gt;Supervisor: Professor Steve Gunn &lt;/p&gt;
 </description>
     </item>
     <item>
@@ -253,17 +51,7 @@ sudo umount /dev/sdx2&lt;/code&gt;&lt;/pre&gt;
       <guid isPermaLink="true">http://rmhsilva.com/projects/homebuilt-guitar/</guid>
       <author></author>
       <description>&lt;p&gt;Actually it was mainly built in my old school‘s workshop, but my basement saw its fair share too.  I built this as part of a school project, and it’s definitely something I&amp;#39;ll do again one day.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;As part of the &lt;a href=&quot;http://en.wikipedia.org/wiki/IB_Middle_Years_Programme&quot;&gt;MYP&lt;/a&gt;, I was required to do a Personal Project — essentially a ‘large’ project of my choosing, that would take about 3 months (including a report).  I chose to build a guitar.  I played a lot of acoustic guitar at the time, but really really wanted an electric guitar, and it seemed a good idea at the time.  It resulted in a very usable guitar that I played at both my MYP and IB graduations.&lt;/p&gt;
-&lt;h2&gt;Outcomes&lt;/h2&gt;
-&lt;p&gt;The most obvious result of my project is that it gave me a working electric guitar, but more than that, it taught me a lot about the process of designing and building something yourself.  Compromises had to be made, and things went wrong, but the result was definitely worth it.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://rmhsilva.com/projects/homebuilt-guitar/parts.jpg&quot; alt=&quot;Most of the parts that went into the final product&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://rmhsilva.com/projects/homebuilt-guitar/built.jpg&quot; alt=&quot;Finished Guitar&quot;&gt;&lt;/p&gt;
-&lt;p&gt;My biggest regret in not doing the electronics myself.  Unfortunately it was already an expensive project, and buying individual components would have bumped the cost up substantially.  I had to settle for a pre-made Fender style pickguard + pickup combo. My next guitar will have a custom (probably active) pickup system, with built-in tuning/equalisation/preamp electronics.&lt;/p&gt;
-&lt;!-- 
-## It was tough
-
-I did end up spending a large proportion of my afternoons and free time in the workshop, --&gt;</description>
+</description>
     </item>
     <item>
       <title>Guitar Effect Pedals (stompboxes)</title>
@@ -272,23 +60,6 @@ I did end up spending a large proportion of my afternoons and free time in the w
       <guid isPermaLink="true">http://rmhsilva.com/projects/effect-pedals/</guid>
       <author></author>
       <description>&lt;p&gt;Before I really got interested in electronics, I mainly coded a lot. Then I started building effect pedals for my electric guitar.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;My school didn&amp;#39;t have an electronics course.  I was forced to discover it on my own, which I quite happily did.  Apart from going through a variety of electronic hobby kits and similar sandboxed projects, I built several guitar effect pedals.&lt;/p&gt;
-&lt;p&gt;I frequently visited the amazing &lt;a href=&quot;http://www.tonepad.com/&quot;&gt;Tonepad&lt;/a&gt; website, and finally got my act together and started building boards.  To date I&amp;#39;ve built 5 pedals, none of which quite followed the schematics on Tonepad.&lt;/p&gt;
-&lt;h3&gt;Combo box&lt;/h3&gt;
-&lt;p&gt;My first attempt at pedal building was interesting, because it was the first time I‘d ever done something this complex, and the first time I’d ever etched a board.  I used a permanent marker to draw the traces, as I didn‘t have a laser printer at hand.  For etching, I hijacked my school’s chemistry lab assistant and managed to get some Ferric Chloride.  The final results were sketchy, but they worked, and they did what they were designed for.&lt;/p&gt;
-&lt;p&gt;I built three boards in this manner, and put them into a custom acrylic combo box with one input and one output.  The effects were&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.tonepad.com/project.asp?id=5&quot;&gt;Orange Squeezer&lt;/a&gt; (Compression)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.tonepad.com/project.asp?id=48&quot;&gt;Purple Peaker&lt;/a&gt; (Hi/Lo frequency booster)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.tonepad.com/project.asp?id=49&quot;&gt;Blue Clipper&lt;/a&gt; (Distortion)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Hopefully I&amp;#39;ll have some pictures I can put up soon…&lt;/p&gt;
-&lt;h3&gt;Preamp&lt;/h3&gt;
-&lt;p&gt;The &lt;a href=&quot;http://www.tonepad.com/project.asp?id=31&quot;&gt;EH booster&lt;/a&gt; was an absurdly simple build, which sounded really good with my custom &lt;a href=&quot;http://rmhsilva.com/projects/homebuilt-guitar&quot;&gt;guitar&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;I actually just built the whole thing on stripboard, and covered it all up with masking tape.&lt;/p&gt;
-&lt;h3&gt;Il Griton&lt;/h3&gt;
-&lt;p&gt;My latest pedal was the &lt;a href=&quot;http://www.tonepad.com/project.asp?id=49&quot;&gt;Il Griton&lt;/a&gt;, which is an Ibanez Tube Screamer clone.  Unfortunately it took a while because I started it at university.  I ordered the Tonepad PCB for this one, because I didn&amp;#39;t have the time or resources to make one myself, and I felt it was too complex for stripboard.&lt;/p&gt;
 </description>
     </item>
   </channel>
