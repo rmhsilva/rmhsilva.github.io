@@ -1,0 +1,65 @@
+==================================================================
+https://keybase.io/rmhsilva
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://www.rmhsilva.com
+  * I am rmhsilva (https://keybase.io/rmhsilva) on keybase.
+  * I have a public key with fingerprint 342E F0FB 24B3 B54B 5791  9E56 FBAE B9DE 3942 60A0
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "342ef0fb24b3b54b57919e56fbaeb9de394260a0",
+            "host": "keybase.io",
+            "key_id": "fbaeb9de394260a0",
+            "uid": "168750757e2938a8c5a8d2362de94a00",
+            "username": "rmhsilva"
+        },
+        "service": {
+            "hostname": "www.rmhsilva.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1411405839,
+    "expire_in": 157680000,
+    "prev": "3fe614634fbf3f3fbeaa37d36cc3f2ce73068fb4e1f1047aa5aa0c4750de50c2",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v1.0.5
+Comment: https://keybase.io/crypto
+
+yMHfAnicbZF7SFNRHMc38zkQLfCflSFXerrsvh8jkOgxLQWFWFHBOOfec7eburvu
+3UMToSgcaEXEEipWQiJBQqmUDzBNrKQwEEmCIEWIoigStCDQde7Q/zrnj8P5/T7f
+33Myf5PNYedd3dUzrfHH9rfjKxHbiZJTBS0E1JVmwt1C1KP0o2pBPzJChhYME26C
+YWmkkiqkWchAjoWcIFES4ngVAgQlBTESS/MkIAkXEdBNS4HDQGCick3HNvzxaQq2
+/oePpB0ULwocKXACoiVGBKLMAVGhGZ5WkMQCMg2ayAiCRoRpozFgag1RQLS6CGyN
+ajKyarZSrxOxWKx8gyqX9UasDxl6WJf1BuwNhMMhtyUON4fSNIK+9Tg+qAUV3DsW
+RJFhanqQcFOYlMOaFZhiKYolOZGRXARqCmkG8mkWwQm8SOJjpUFRa2Iq4imWZ1gV
+qgy+EAHACArDyzKj0jISGJIXVcgiSqVIVgCAA4CUWTwEBXGkTBNWZ+eDOuFmcJnA
+j0Oamj8IwhEDEa0T42czbXaHLTsrw9qezZFXuLHTbiPX9uDHcbqpb2zB88uzOPjx
+hW2wuC8nkej8klNaezD1vqijovbwWM/0Hqrn6tJ1399pgRRvDA9daXfqdSuFeWt3
+vZk7x9tms0P37Y5EQWCu7MjSWvFCPzy9emy45s5Dr3244w3wbq0aEH+a3pn5pwtM
+fDNV1DKZGrn46Pa2ylvmyfqlgedZESH5eSLg91D79NcFzSWxP55ddmrHMsr4mnR3
+VS/WfZ+ddtT0TpZ28pc/XPjE56+mqpK5uZfi25NTZ5gpqSu198AI+y4+RPXPH91N
+z73koXO57VvFs3NlRGA0v4McuTbqe+Kcc469OlQZ2rK/Vxm8uTh0r70qAX//Ax6T
+EiU=
+=5HKx
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/rmhsilva
+
+==================================================================
