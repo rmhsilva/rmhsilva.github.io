@@ -13,6 +13,8 @@ echo Assuming Python and Git are installed...
 cd $HOME
 if [ -d .dotfiles ]; then
     git clone -o origin_https https://github.com/rmhsilva/dotfiles/ .dotfiles
+    cd .dotfiles
+    git submodule update --init --recursive
 fi
 
 # create initial inventory
