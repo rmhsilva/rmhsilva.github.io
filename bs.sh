@@ -5,12 +5,15 @@ if [ "$EUID" -eq 0 ]; then
     exit 1
 fi
 
+echo ***
 echo Bootstrapping!
 echo Assuming Python and Git are installed...
 
 # checkout dotfiles
 cd $HOME
-[ -d .dotfiles ] || git clone -o origin_https https://github.com/rmhsilva/dotfiles/ .dotfiles
+if [ -d .dotfiles ]; then
+    git clone -o origin_https https://github.com/rmhsilva/dotfiles/ .dotfiles
+fi
 
 # create initial inventory
 cat <<EOF > ~/.dotfiles/inventory
