@@ -1,6 +1,0 @@
---- config/platform/host/pkg_map.orig 2010-11-12 03:11:05.000000000 +0000
-+++ config/platform/host/pkg_map  2013-06-26 12:53:46.631516792 +0000
-@@ -1,2 +1,2 @@
--PKG_MTD_UTILS = mtd-utils
-+PKG_MTD_UTILS = mtd-utils-20060302
- PKG_ELFTOSB = elftosb
