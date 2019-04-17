@@ -1,4 +1,8 @@
-#!/bin/sh
+#!/bin/bash
+#
+# curl -fsSL https://rmhsilva.com/bs.sh | /bin/bash
+#
+# Installs git, python, and dotfiles
 
 if [ "$EUID" -eq 0 ]; then
     echo Not meant to be run as root!
@@ -7,7 +11,13 @@ fi
 
 echo ***
 echo Bootstrapping!
-echo Assuming Python and Git are installed...
+
+if [ "$(uname)" -eq "Darwin" ]; then
+    echo Installing Brew, git, python 3
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew install git
+    brew install python
+fi
 
 # checkout dotfiles
 cd $HOME
@@ -17,7 +27,7 @@ if [ -d .dotfiles ]; then
     git submodule update --init --recursive
 fi
 
-# create initial inventory
+# create initial Ansible inventory
 cat <<EOF > ~/.dotfiles/inventory
 [local]
 localhost  ansible_connection=local
