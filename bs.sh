@@ -11,6 +11,9 @@ fi
 
 echo Bootstrapping!
 
+set -x
+set -e
+
 if [ "$(uname)" -eq "Darwin" ]; then
     echo Installing Brew, git, python 3
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -20,11 +23,9 @@ fi
 
 # checkout dotfiles
 cd $HOME
-if [ -d .dotfiles ]; then
-    git clone -o origin_https https://github.com/rmhsilva/dotfiles/ .dotfiles
-    cd .dotfiles
-    git submodule update --init --recursive
-fi
+git clone -o origin_https https://github.com/rmhsilva/dotfiles/ .dotfiles
+cd .dotfiles
+git submodule update --init --recursive
 
 # create initial Ansible inventory
 cat <<EOF > ~/.dotfiles/inventory
