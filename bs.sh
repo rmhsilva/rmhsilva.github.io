@@ -14,7 +14,7 @@ echo Bootstrapping!
 set -x
 set -e
 
-if [ "$(uname)" -eq "Darwin" ]; then
+if [ "$(uname)" = "Darwin" ]; then
     echo Installing Brew, git, python 3
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install git
