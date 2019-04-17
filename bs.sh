@@ -9,7 +9,6 @@ if [ "$EUID" -eq 0 ]; then
     exit 1
 fi
 
-echo ***
 echo Bootstrapping!
 
 if [ "$(uname)" -eq "Darwin" ]; then
