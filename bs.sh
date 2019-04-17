@@ -21,6 +21,8 @@ if [ "$(uname)" = "Darwin" ]; then
     brew install python
 fi
 
+pip3 install ansible
+
 # checkout dotfiles
 cd $HOME
 git clone -o origin_https https://github.com/rmhsilva/dotfiles/ .dotfiles
