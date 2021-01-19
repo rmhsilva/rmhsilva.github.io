@@ -1,0 +1,39 @@
+@tailwind base;
+
+:root {
+  --colour-primary: green;
+}
+
+
+.sans {
+  font-family: "IBM Plex Sans", sans;
+  font-weight: 400;
+}
+.mono {
+  font-family: "Space Mono", "Menlo", monospace;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+
+.header-nav a { @apply inline-block ml-5; }
+.pager a { @apply inline-block px-1; }
+
+.social        { @apply text-center; }
+.social ul     { @apply inline-block text-right pr-20; }
+.social li     { @apply text-right inline-block mx-auto my-1; }
+.social .light { @apply text-gray-700; }
+
+
+.coloured a { @apply underline; color: var(--colour-primary) }
+
+.content h1 { @apply text-2xl  mt-10 mb-12; }
+.content h2 { @apply text-xl   mt-8  mb-4; }
+.content h3 { @apply font-bold mt-8  mb-4; }
+
+.content a { @apply underline; color: var(--colour-primary) }
+
+.content p { @apply mb-6; max-width: 52ch; }
+
+@tailwind components;
+@tailwind utilities;
