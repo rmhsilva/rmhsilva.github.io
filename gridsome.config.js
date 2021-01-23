@@ -41,11 +41,11 @@ module.exports = {
           output: "/rss.xml",
         },
         maxItems: 25,
-        // filterNodes: (node) => node.draft === false, TODO?
+        filterNodes: (node) => node.draft === false,
         nodeToFeedItem: (node) => ({
           title: node.title,
           author: "Ric da Silva",
-          date: node.date,
+          // date: node.date,
           content: node.excerpt,
         }),
       },
