@@ -35,10 +35,11 @@
 
 .pager a { @apply inline-block px-1; }
 
-.social        { @apply text-center; }
-.social ul     { @apply inline-block text-right pr-20; }
-.social li     { @apply text-right inline-block mx-auto my-1; }
-.social .light { @apply text-gray-600; }
+.social         { @apply text-center; }
+.social ul      { @apply inline-block text-right pr-20; }
+.social li      { @apply text-right inline-block mx-auto my-1; }
+.social .light  { @apply text-gray-600; }
+.social a:hover { @apply underline; }
 
 .coloured a { color: var(--colour-primary); }
 
