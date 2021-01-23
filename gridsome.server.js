@@ -6,8 +6,21 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = function (api) {
-  api.loadSource(({ addCollection }) => {
+  api.loadSource(({ addCollection, addSchemaResolvers }) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
+
+    // By default, essays are drafts
+    addSchemaResolvers({
+      Essay: {
+        draft: {
+          type: "Boolean",
+          resolve(obj) {
+            if ("draft" in obj) return obj.draft;
+            else return true;
+          },
+        },
+      },
+    });
   });
 
   api.createPages(({ createPage }) => {

@@ -10,23 +10,22 @@
       <div class="content">
         <h2>Thoughts</h2>
         <ul class="list-disc list-inside">
-          <li><a href="/w/2020-a-year-of-serverless">
-            2020: A Year Of Serverless
-          </a></li>
+          <li v-for="edge in $page.allEssay.edges" :key="edge.node.id">
+            <a :href="edge.node.path">{{ edge.node.title }}</a></li>
         </ul>
       </div>
 
       <div class="content">
         <h2>Questions</h2>
         <ul class="list-decimal list-inside">
-          <li><a href="/questions">
-            If not microservices, then what?
+          <li><a href="/questions"
+              >If not microservices, then what?
           </a> </li>
-          <li><a href="/questions">
-            Why is symbolic ML not more popular?
+          <li><a href="/questions"
+              >Why is symbolic ML not more popular?
           </a> </li>
-          <li><a href="/questions">
-            How can we reduce 3rd-world country investment risk?
+          <li><a href="/questions"
+              >How can we reduce 3rd-world country investment risk?
           </a></li>
         </ul>
       </div>
@@ -36,6 +35,18 @@
   </DefaultLayout>
 </template>
 
+<page-query>
+query{
+  allEssay {
+    edges {
+      node {
+        title
+        path
+      }
+    }
+  }
+}
+</page-query>
 
 
 <script>

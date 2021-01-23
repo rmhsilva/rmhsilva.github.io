@@ -28,6 +28,7 @@ query ($page: Int) {
         id
         title
         date
+        draft
         path
         content
       }

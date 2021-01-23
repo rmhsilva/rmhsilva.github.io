@@ -1,6 +1,7 @@
 ---
 title: Build What They Want
 date: 2021/01/18
+draft: false
 ---
 
 TL;DR: I spent years thinking I understood what Paul Graham meant. I'm trying

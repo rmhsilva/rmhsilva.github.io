@@ -14,7 +14,7 @@
         <li><a href="http://linkedin.com/in/rmhsilva" target="_blank">
           <span>linkedin.com/in<span class="light">/rmhsilva</span></span>
         </a></li><br/>
-        <li><a href="https://dev.to/rmhsilva">
+        <li><a href="https://dev.to/rmhsilva" target="_blank">
           <span>dev.to/<span class="light">rmhsilva</span></span>
         </a></li><br/>
         <li><a href="http://twitter.com/rmhsilva" target="_blank">
