@@ -1,3 +1,5 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   purge: {
     content: ["./src/**/*.vue", "./src/**/*.js"],
@@ -10,11 +12,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "green",
-        // primary: {
-        //   100: '#f7fafc',
-        //   900: '#1a202c',
-        // },
+        primary: {
+          ...colors.teal,
+        },
       },
     },
   },

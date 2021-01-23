@@ -6,13 +6,15 @@
 
     <form v-else-if="!submitted"
           v-on:submit.prevent="handleSubmit"
+          method="post"
           name="updates"
-          method="POST"
           data-netlify="true">
 
+      <input type="hidden" name="form-name" value="updates" />
+
       <input
-        class="w-48 text-black placeholder-gray-700 text-sm bg-purple-100 px-2 py-4 sm:py-2
-               border-purple-700 border-t border-l sm:border-b border-r sm:border-r-0"
+        class="w-48 text-black placeholder-gray-700 text-sm bg-gray-100 px-2 py-4 sm:py-2
+               border-primary-700 border-t border-l sm:border-b border-r sm:border-r-0"
         type="text"
         name="firstname"
         v-model="formData.firstname"
@@ -20,16 +22,16 @@
 
       <input
         class="w-48 text-black text-sm bg-white px-2 py-4 sm:py-2
-               border-purple-700 border-l sm:border-l-0 border-r sm:border-t border-b
+               border-primary-700 border-l sm:border-l-0 border-r sm:border-t border-b
                block sm:inline-block mx-auto sm:ml-0"
         type="email"
         name="email"
         v-model="formData.email"
         placeholder="Enter your e-mail" />
 
-      <button class="button text-left bg-purple-700 text-gray-100 shadow-xl
-                     hover:bg-purple-800
-                     border border-purple-900
+      <button class="button text-left bg-primary-700 text-gray-100 shadow-xl
+                     hover:bg-primary-800
+                     border border-primary-900
                      block sm:inline-block mx-auto sm:ml-2 mt-2 sm:mt-1
                      px-4 py-2"
               type="submit">
@@ -68,10 +70,7 @@ export default {
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: this.encode({
-          'form-name': e.target.getAttribute('name'),
-          ...this.formData,
-        }),
+        body: this.encode(this.formData),
       })
         .then(() => this.submitted = true)
         .catch((error) => console.log(error))

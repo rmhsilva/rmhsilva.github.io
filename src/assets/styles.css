@@ -1,9 +1,5 @@
 @tailwind base;
 
-:root {
-  --colour-primary: green;
-}
-
 
 .sans {
   font-family: "IBM Plex Sans", sans;
@@ -41,7 +37,7 @@
 .social .light  { @apply text-gray-600; }
 .social a:hover { @apply underline; }
 
-.coloured a { color: var(--colour-primary); }
+.coloured a { @apply text-primary-700; }
 
 .content h1 { @apply text-3xl  mt-12 mb-8; }
 .content h2 { @apply font-bold mt-16  mb-4; }
@@ -55,7 +51,7 @@
 .content blockquote   { @apply pl-2 py-1 mb-6 bg-gray-100 border-gray-500 border-l-4 border-solid }
 .content blockquote p { @apply my-0 }
 
-.content a:hover  { color: var(--colour-primary); }
+.content a:hover  { @apply text-primary-700; }
 
 .msg     { @apply px-6 py-2 border border-solid rounded; }
 .success { @apply bg-green-100 border-green-300; }
