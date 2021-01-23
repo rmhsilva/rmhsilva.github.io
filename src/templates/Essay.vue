@@ -19,6 +19,7 @@ query ThisEssay ($path: String!) {
     title
     date
     content
+    draft
   }
 }
 </page-query>

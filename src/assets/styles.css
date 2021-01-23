@@ -42,12 +42,18 @@
 
 .coloured a { color: var(--colour-primary); }
 
-.content h1 { @apply text-2xl  mt-10 mb-12; }
-.content h2 { @apply text-xl   mt-8  mb-4; }
-.content h3 { @apply font-bold mt-8  mb-4; }
-.content p  { @apply mb-6; max-width: 52ch; }
+.content h1 { @apply text-3xl  mt-12 mb-8; }
+.content h2 { @apply font-bold mt-16  mb-4; }
+.content h3 { @apply font-bold mt-12 mb-4; }
+.content p  { @apply mb-6 text-gray-700; max-width: 53ch; }
+.content ul { @apply mb-6 text-gray-700 list-disc; max-width: 52ch; }
+.content ol { @apply mb-6 text-gray-700 list-decimal; max-width: 52ch; }
 .content li { @apply my-2; }
 .content a  { @apply underline; }
+
+.content blockquote   { @apply pl-2 py-1 mb-6 bg-gray-100 border-gray-500 border-l-4 border-solid }
+.content blockquote p { @apply my-0 }
+
 .content a:hover  { color: var(--colour-primary); }
 
 .msg     { @apply px-6 py-2 border border-solid rounded; }
