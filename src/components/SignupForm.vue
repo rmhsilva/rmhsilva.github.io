@@ -6,14 +6,9 @@
 
     <form v-else-if="!submitted"
           v-on:submit.prevent="handleSubmit"
-          name="newsletter"
-          method="post"
-          action="/signup"
-          data-netlify="true"
-          data-netlify-honeypot="surname">
-
-      <!-- Anti-spam: -->
-      <p hidden> <label> Don’t fill this out: <input name="surname" /> </label> </p>
+          name="updates"
+          method="POST"
+          data-netlify="true">
 
       <input
         class="w-48 text-black placeholder-gray-700 text-sm bg-purple-100 px-2 py-4 sm:py-2
@@ -70,7 +65,7 @@ export default {
     handleSubmit(e) {
       // https://docs.netlify.com/forms/setup/#submit-forms-via-ajax
       // AJAX request must match the action attribute on the form
-      fetch('/signup', {
+      fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: this.encode({
@@ -79,7 +74,7 @@ export default {
         }),
       })
         .then(() => this.submitted = true)
-        .catch(error => alert(error))
+        .catch(error => console.log(error))
     }
   }
 }

@@ -2,6 +2,11 @@
   <DefaultLayout>
     <div class="narrow">
 
+      <div class="coloured content">
+        <a href="/archive">Full Archive</a>
+        <p class="text-gray-700">&mdash;</p>
+      </div>
+
       <div v-for="edge in $page.allEssay.edges" :key="edge.node.id">
         <Post class="mb-24" :essay="edge.node"/>
         <p class="text-gray-700">&mdash;</p>

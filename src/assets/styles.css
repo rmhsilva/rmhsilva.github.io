@@ -63,5 +63,11 @@
 .success::before { content: "✔"; @apply text-green-900 mr-2; }
 
 
+ul, ol { @apply list-inside; }
+@screen md {
+  ul, ol { @apply list-outside; }
+}
+
+
 @tailwind components;
 @tailwind utilities;
