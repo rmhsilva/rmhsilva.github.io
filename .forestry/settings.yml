@@ -11,9 +11,15 @@ sections:
   match: "**/*.md"
   templates:
   - essay
+- type: heading
+  label: Single Pages
 - type: document
   path: content/sections/now.md
   label: Now
+- type: document
+  path: content/sections/questions.md
+  label: Questions
+  match: "**/*"
 - type: document
   path: content/sections/work.md
   label: Work
