@@ -74,7 +74,7 @@ export default {
         }),
       })
         .then(() => this.submitted = true)
-        .catch(error => console.log(error))
+        .catch((error) => console.log(error))
     }
   }
 }
