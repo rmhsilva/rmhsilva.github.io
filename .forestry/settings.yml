@@ -9,6 +9,8 @@ sections:
   label: Essays
   create: documents
   match: "**/*.md"
+  templates:
+  - essay
 - type: document
   path: content/sections/now.md
   label: Now
