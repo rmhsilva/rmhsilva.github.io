@@ -12,11 +12,9 @@ sections:
 - type: document
   path: content/sections/now.md
   label: Now
-  match: "**/*"
 - type: document
   path: content/sections/work.md
   label: Work
-  match: "**/*"
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
