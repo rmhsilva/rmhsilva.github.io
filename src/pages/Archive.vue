@@ -1,13 +1,13 @@
 <template>
   <DefaultLayout>
 
-    <div class="content">
+    <div class="content narrow">
 
       <h1>By date</h1>
 
       <div v-for="edge in $page.allEssay.edges" :key="edge.node.id">
 
-        <a :href="edge.node.path" class="block">
+        <a :href="edge.node.path" class="block mb-1">
           <span class="mono text-sm">
             {{ edge.node.date }} ~
           </span>

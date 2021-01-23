@@ -1,10 +1,12 @@
 <template>
   <DefaultLayout>
 
-    <article>
+    <article class="narrow">
+      <!-- TODO show "About the Author" next to the post, Medium-style -->
       <Post :essay="$page.essay"/>
 
-      <AboutAuthor />
+      <p class="text-gray-800 mb-4 mt-20">&mdash;</p>
+      <EssayFooter />
     </article>
 
   </DefaultLayout>
@@ -24,10 +26,10 @@ query ThisEssay ($path: String!) {
 
 <script>
 import Post from '~/components/Post.vue'
-import AboutAuthor from '~/components/AboutAuthor.vue'
+import EssayFooter from '~/components/EssayFooter.vue'
 
 export default {
-  components: { Post, AboutAuthor },
+  components: { Post, EssayFooter },
   metaInfo() {
     return {
       title: this.$page.essay.title

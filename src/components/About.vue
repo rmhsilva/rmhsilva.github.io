@@ -1,12 +1,10 @@
 <template>
   <div class="text-center">
-
-    <p class="mb-4 max-w-lg mx-auto">
-      I’m Ric da Silva, and I work on things with positive impact to society,
-      like healthcare, the environment, and tools for creativity.
+    <p class="mb-1 max-w-lg mx-auto">
+      You’ve landed on Ric da Silva’s public interface.
     </p>
 
-    <p class="mb-6">I'm also here:</p>
+    <p class="mb-3">He's also here:</p>
 
     <div class="social mono">
       <ul>

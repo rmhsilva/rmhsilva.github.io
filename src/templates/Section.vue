@@ -1,7 +1,7 @@
 <template>
   <DefaultLayout>
 
-    <article class="content">
+    <article class="content narrow">
       <h1>
         {{ $page.section.title }}
       </h1>

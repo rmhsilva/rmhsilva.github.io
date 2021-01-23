@@ -8,18 +8,7 @@ const tailwindcss = require("tailwindcss");
 module.exports = {
   siteName: "Ric da Silva",
   siteDescription: "Ric da Silva - Programming Thought",
-  // chainWebpack: (config) => {
-  //   const svgRule = config.module.rule("svg");
-  //   svgRule.uses.clear();
-  //   svgRule
-  //     .use("vue-svg-loader")
-  //     .loader("vue-svg-loader")
-  //     .options({
-  //       svgo: {
-  //         plugins: [{ removeDimensions: true }, { removeViewBox: false }],
-  //       },
-  //     });
-  // },
+  siteUrl: "https://rmhsilva.com",
   plugins: [
     {
       // https://gridsome.org/plugins/@gridsome/source-filesystem
@@ -36,10 +25,35 @@ module.exports = {
         path: "./content/sections/**/*.md",
       },
     },
+    {
+      // https://next.gridsome.org/plugins/gridsome-plugin-feed
+      use: "gridsome-plugin-feed",
+      options: {
+        contentTypes: ["Essay"],
+        feedOptions: {
+          title: "rmhsilva.com Feed",
+          description: "Thoughts about programming and the world",
+          link: "https://rmhsilva.com/",
+          language: "en",
+        },
+        rss: {
+          enabled: true,
+          output: "/rss.xml",
+        },
+        maxItems: 25,
+        // filterNodes: (node) => node.draft === false, TODO?
+        nodeToFeedItem: (node) => ({
+          title: node.title,
+          author: "Ric da Silva",
+          date: node.date,
+          content: node.excerpt,
+        }),
+      },
+    },
   ],
   // https://gridsome.org/docs/templates/#templates
   templates: {
-    Essay: "/writing/:title",
+    Essay: "/w/:title",
     Section: "/:title",
   },
   // https://www.drewtown.dev/post/setting-up-tailwind-and-purgecss-with-gridsome-without-using-any-plugins/

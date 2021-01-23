@@ -15,25 +15,46 @@
   font-size: 0.9rem;
 }
 
+.edge-padding { @apply px-4; }
 
-.header-nav a { @apply inline-block ml-5; }
+@screen md {
+  .narrow { @apply max-w-screen-md mx-auto px-16; }
+}
+
+#top-strip {
+  background: #FFF;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(155deg, #74A04f, 30%, white);
+  background: linear-gradient(155deg, #24B0ff, 10%, #84903f);
+  clip-path: polygon(0px 0px, 100% 0px, 100% 85%, 0px 100%);
+  padding-bottom: 0.5em;
+}
+
+.header-nav a       { @apply inline-block px-3 py-1; }
+.header-nav a:hover { @apply text-white bg-black; }
+
+
 .pager a { @apply inline-block px-1; }
 
 .social        { @apply text-center; }
 .social ul     { @apply inline-block text-right pr-20; }
 .social li     { @apply text-right inline-block mx-auto my-1; }
-.social .light { @apply text-gray-700; }
+.social .light { @apply text-gray-600; }
 
-
-.coloured a { @apply underline; color: var(--colour-primary) }
+.coloured a { color: var(--colour-primary); }
 
 .content h1 { @apply text-2xl  mt-10 mb-12; }
 .content h2 { @apply text-xl   mt-8  mb-4; }
 .content h3 { @apply font-bold mt-8  mb-4; }
+.content p  { @apply mb-6; max-width: 52ch; }
+.content li { @apply my-2; }
+.content a  { @apply underline; }
+.content a:hover  { color: var(--colour-primary); }
 
-.content a { @apply underline; color: var(--colour-primary) }
+.msg     { @apply px-6 py-2 border border-solid rounded; }
+.success { @apply bg-green-100 border-green-300; }
 
-.content p { @apply mb-6; max-width: 52ch; }
+.success::before { content: "✔"; @apply text-green-900 mr-2; }
+
 
 @tailwind components;
 @tailwind utilities;

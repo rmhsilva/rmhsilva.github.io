@@ -11,11 +11,11 @@ import {
   faLinkedin,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { faChessRook } from "@fortawesome/free-solid-svg-icons";
+import { faChessRook, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
 config.autoAddCss = false;
-library.add(faGithub, faLinkedin, faTwitter, faChessRook);
+library.add(faGithub, faLinkedin, faTwitter, faChessRook, faCheckCircle);
 
 export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component

@@ -1,14 +1,19 @@
 <template>
-  <div class="main sans container max-w-screen-md mx-auto px-4">
+  <div class="sans">
+
+    <div id="top-strip"> </div>
 
     <div class="md:fixed top-0 left-0 right-0">
-      <header class="container max-w-screen-md mx-auto px-2 py-4">
+      <header class="container max-w-screen-md mx-auto py-4">
 
-        <a class="inline-block text-md md:mr-8 px-4 py-2" href="/">
+        <a class="inline-block text-md md:mr-8 py-2 edge-padding
+                  border border-solid border-transparent
+                  hover:border-gray-900
+                  " href="/">
           <font-awesome :icon="['fas', 'chess-rook']"/>
         </a>
 
-        <nav class="header-nav float-right inline-block self-center md:pr-4">
+        <nav class="header-nav float-right inline-block edge-padding">
           <a href="/questions">Questions</a>
           <a href="/now">Now</a>
           <a href="/work">Work</a>
@@ -19,7 +24,9 @@
     </div>
 
 
-    <div class="mt-20 mb-20 md:px-10">
+    <div class="container max-w-screen-lg mx-auto edge-padding
+                mt-10 md:mt-20
+                mb-20">
       <slot />
     </div>
 

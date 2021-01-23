@@ -1,5 +1,5 @@
 ---
-title: 2020 Serverless
+title: "2020: A Year Of Serverless"
 date: 2021/01/19
 ---
 

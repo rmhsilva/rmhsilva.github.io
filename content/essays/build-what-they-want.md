@@ -3,12 +3,15 @@ title: Build What They Want
 date: 2021/01/18
 ---
 
+TL;DR: I spent years thinking I understood what Paul Graham meant. I'm trying
+something slightly different now.
+
 I prefer a different wording of Paul Graham's [advice][pg] for startups.
 
 **Build What They Want** makes the precedence obvious: before you start, you
 have to find out *who* they are, and *what* they want.
 
-It’s not about building what you want.
+It’s not about building what *you* want.
 
 Paul Graham starts with “build something”, and that’s what hits your
 subconscious first, allowing the “something” to remain ambiguous. I'd prefer to

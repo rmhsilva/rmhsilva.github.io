@@ -1,14 +1,17 @@
 <template>
   <DefaultLayout>
+    <div class="narrow">
 
-    <div v-for="edge in $page.allEssay.edges" :key="edge.node.id">
-      <Post class="mb-24" :essay="edge.node"/>
+      <div v-for="edge in $page.allEssay.edges" :key="edge.node.id">
+        <Post class="mb-24" :essay="edge.node"/>
+        <p class="text-gray-700">&mdash;</p>
+      </div>
+
+      <Pager class="pager text-sm inline-block" :info="$page.allEssay.pageInfo"/>
+
+      <EssayFooter />
+
     </div>
-
-    <Pager class="pager text-sm inline-block" :info="$page.allEssay.pageInfo"/>
-
-    <AboutAuthor />
-
   </DefaultLayout>
 </template>
 
@@ -37,10 +40,10 @@ query ($page: Int) {
 <script>
 import { Pager } from 'gridsome'
 import Post from '~/components/Post.vue'
-import AboutAuthor from '~/components/AboutAuthor.vue'
+import EssayFooter from '~/components/EssayFooter.vue'
 
 export default {
-  components: { Pager, Post, AboutAuthor },
+  components: { Pager, Post, EssayFooter },
   metaInfo() {
     return {
       title: "Writing"
