@@ -4,6 +4,8 @@ import "~/assets/styles.css";
 
 import DefaultLayout from "~/layouts/Default.vue";
 
+import moment from "moment";
+
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { config, library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -23,6 +25,9 @@ export default function (Vue, { router, head, isClient }) {
 
   // Add font-awesome
   Vue.component("font-awesome", FontAwesomeIcon);
+
+  // Add moment
+  Vue.prototype.moment = moment;
 
   head.link.push({
     rel: "stylesheet",
