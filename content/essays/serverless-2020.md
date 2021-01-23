@@ -1,6 +1,6 @@
 ---
 title: "2020: A Year Of Serverless"
-date: 2021/01/23
+date: 2021-01-23
 tldr: Serverless is not a hype, but the tooling needs lots of work. There is opportunity for new paradigms and lots of value to be created.
 ---
 

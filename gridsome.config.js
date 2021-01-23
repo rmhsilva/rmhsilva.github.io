@@ -45,7 +45,7 @@ module.exports = {
         nodeToFeedItem: (node) => ({
           title: node.title,
           author: "Ric da Silva",
-          // date: node.date,
+          date: node.date,
           content: node.excerpt,
         }),
       },

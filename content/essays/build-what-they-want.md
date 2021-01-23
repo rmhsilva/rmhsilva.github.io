@@ -1,6 +1,6 @@
 ---
 title: Build What They Want
-date: 2021/01/18
+date: 2021-01-18
 draft: false
 ---
 
