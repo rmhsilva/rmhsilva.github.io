@@ -16,6 +16,12 @@
 
     <div class="content" v-html="essay.content"/>
 
+    <div v-if="essay.hn" class="coloured mt-8 text-sm">
+      <a :href="'https://news.ycombinator.com/item?id=' + essay.hn" target="_blank">
+        Discuss on HN
+      </a>
+    </div>
+
   </div>
 </template>
 

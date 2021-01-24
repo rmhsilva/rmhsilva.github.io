@@ -19,6 +19,13 @@ module.exports = function (api) {
             else return true;
           },
         },
+        hn: {
+          type: "Int",
+          resolve(obj) {
+            if ("hn" in obj) return obj.hn;
+            else return null;
+          },
+        },
       },
     });
   });

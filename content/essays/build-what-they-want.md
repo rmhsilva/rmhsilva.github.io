@@ -2,6 +2,7 @@
 title: Build What They Want
 date: 2021-01-18
 draft: false
+hn: 25892198
 ---
 
 TL;DR: I spent years mistakenly thinking I understood what Paul Graham meant.
