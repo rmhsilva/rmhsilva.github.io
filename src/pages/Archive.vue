@@ -3,14 +3,14 @@
 
     <div class="content narrow">
 
-      <h1>By date</h1>
+      <h1>Archive, by date</h1>
 
       <div v-for="edge in $page.allEssay.edges" :key="edge.node.id">
 
-        <a :href="edge.node.path" class="block mb-1">
-          <span class="mono text-sm">
-            {{ edge.node.date }} ~
-          </span>
+        <span class="text-sm">
+          {{ moment(edge.node.date).format("MMM YYYY") }} &nbsp; // &nbsp;
+        </span>
+        <a :href="edge.node.path" class="inline-block py-1">
           {{ edge.node.title }}
         </a>
 
