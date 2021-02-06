@@ -31,6 +31,12 @@
 
       <p class="text-gray-800 mb-4 mt-20">&mdash;</p>
 
+      <div v-if="$page.book.twitter" class="coloured mb-8 text-sm">
+        <a :href="$page.book.twitter" target="_blank">
+          Reply/RT on Twitter
+        </a>
+      </div>
+
     </article>
 
     <EssayFooter class="narrow" />
@@ -47,6 +53,7 @@ query ($path: String!) {
     img
     tldr
     rating
+    twitter
   }
 }
 </page-query>

@@ -5,6 +5,7 @@ url: b-franklin
 rating: 10
 date: 2021-01-30
 tldr: Write lots, resolve conflict, and work hard. Inspiring and surprisingly engaging.
+twitter: https://twitter.com/rmhsilva/status/1358024788283973633
 ---
 
 *Raw notes from reading his autobiography in Jan 2021.*
