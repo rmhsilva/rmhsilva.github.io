@@ -8,7 +8,7 @@ things.*
 
 ### If not microservices, then what?
 
-If microservices [are an anti-pattern](/writing/microservices-antipattern.md),
+If microservices [are an anti-pattern](/w/2020-a-year-of-serverless/),
 what should we do instead?
 
 My hunch is that cloud software development will evolve similar to how desktop
