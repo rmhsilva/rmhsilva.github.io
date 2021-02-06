@@ -1,5 +1,11 @@
 <template>
   <div>
+
+    <form class="hidden" name="updates" netlify>
+      <input type="hidden" name="firstname" />
+      <input type="hidden" name="email" />
+    </form>
+
     <div v-if="!shown">
       <a href="#" v-on:click="shown = true">Get e-mail updates when I write</a>
     </div>
