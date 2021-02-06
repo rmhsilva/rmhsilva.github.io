@@ -6,11 +6,7 @@
 
     <form v-else-if="!submitted"
           v-on:submit.prevent="handleSubmit"
-          method="post"
-          name="updates"
-          data-netlify="true">
-
-      <input type="hidden" name="form-name" value="updates" />
+          method="post">
 
       <input
         class="w-48 text-black placeholder-gray-700 text-sm bg-gray-100 px-2 py-4 sm:py-2
@@ -70,7 +66,7 @@ export default {
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: this.encode(this.formData),
+        body: this.encode({'form-name': 'updates', ...this.formData}),
       })
         .then(() => this.submitted = true)
         .catch((error) => console.log(error))
