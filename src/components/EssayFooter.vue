@@ -11,7 +11,8 @@
 
     <p class="text-sm mb-4">
       Read more:
-      <a href="/archive">Archive</a>
+      <a href="/archive">Blog archive</a>
+      // <a href="/books">Book notes</a>
       // <a href="feed:///rss.xml">RSS</a>
     </p>
 

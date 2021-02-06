@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="!shown">
-      <a href="#" v-on:click="shown = true">Get e-mail updates</a>
+      <a href="#" v-on:click="shown = true">Get e-mail updates when I write</a>
     </div>
 
     <form v-else-if="!submitted"

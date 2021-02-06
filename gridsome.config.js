@@ -26,10 +26,17 @@ module.exports = {
       },
     },
     {
+      use: "@gridsome/source-filesystem",
+      options: {
+        typeName: "Book",
+        path: "./content/books/**/*.md",
+      },
+    },
+    {
       // https://next.gridsome.org/plugins/gridsome-plugin-feed
       use: "gridsome-plugin-feed",
       options: {
-        contentTypes: ["Essay"],
+        contentTypes: ["Essay", "Book"],
         feedOptions: {
           title: "rmhsilva.com Feed",
           description: "Thoughts about programming and the world",
@@ -55,6 +62,7 @@ module.exports = {
   templates: {
     Essay: "/w/:title",
     Section: "/:title",
+    Book: "/book/:url",
   },
   // https://www.drewtown.dev/post/setting-up-tailwind-and-purgecss-with-gridsome-without-using-any-plugins/
   css: {

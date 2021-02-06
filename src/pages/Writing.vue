@@ -2,14 +2,13 @@
   <DefaultLayout>
     <div class="narrow">
 
-      <div class="coloured content">
+      <div class="coloured content mb-24">
         <a href="/archive">Full Archive</a>
-        <p class="text-gray-700">&mdash;</p>
       </div>
 
-      <div v-for="edge in $page.allEssay.edges" :key="edge.node.id">
-        <Post class="mb-24" :essay="edge.node"/>
-        <p class="text-gray-700">&mdash;</p>
+      <div class="mb-48" v-for="edge in $page.allEssay.edges" :key="edge.node.id">
+        <Post :essay="edge.node"/>
+        <p class="mt-10 text-gray-700">&mdash;</p>
       </div>
 
       <Pager class="pager text-sm inline-block" :info="$page.allEssay.pageInfo"/>
