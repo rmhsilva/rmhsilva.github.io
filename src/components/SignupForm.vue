@@ -1,6 +1,7 @@
 <template>
   <div>
 
+    <!-- https://docs.netlify.com/forms/setup/#work-with-javascript-rendered-forms -->
     <form class="hidden" name="updates" netlify>
       <input type="hidden" name="firstname" />
       <input type="hidden" name="email" />
