@@ -54,6 +54,10 @@
 
 .content pre             { @apply mb-6 bg-gray-100 py-3 px-2 text-xs shadow rounded }
 
+.content table { @apply table-auto mt-4 mb-6 }
+.content th,
+.content td    { @apply p-2 border border-solid border-gray-200 }
+
 .content a               { @apply underline; }
 .content a:hover         { @apply text-primary-700; }
 
@@ -67,12 +71,14 @@
 .success::before { content: "✔"; @apply text-green-900 mr-2; }
 
 
+.roam-block       { @apply p-1 bg-blue-50 m-1 }
 .roam-tag         { @apply text-gray-400 }
 .roam-tag a       { text-decoration: none !important }
 .roam-highlighted { @apply bg-yellow-100 }
 .roam-blockref    { @apply border-b border-solid border-blue-100 }
 .roam-embed       { @apply bg-blue-100 bg-opacity-30 p-1 ml-1 mr-1 }
 .content > .roam-embed { @apply mb-6 }
+
 
 @tailwind components;
 @tailwind utilities;
