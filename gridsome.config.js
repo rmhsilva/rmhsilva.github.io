@@ -6,7 +6,7 @@
 const tailwindcss = require("tailwindcss");
 
 module.exports = {
-  siteName: "Ric da Silva",
+  siteName: "rmhsilva.com",
   siteDescription: "Ric da Silva - Programming Thought",
   siteUrl: "https://rmhsilva.com",
   plugins: [
