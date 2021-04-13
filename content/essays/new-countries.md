@@ -24,7 +24,7 @@ This has been done before, or is being done by other people (eg the Roam Researc
 
 ## So how could this play out?
 
-# Very Postitively
+### Very Postitively
 
 Let's assume he has the funds to support $5000 ($100 for the first 10 submissions for 5 tasks) per week for 5 years ($1.3M).
 
@@ -43,7 +43,7 @@ Physical communities form, like many other [existing physical communities](https
 * Desire to learn (which increases the quality of task work and compounds in value)
 * Willingness to invest financially in the community
 
-# Very negatively
+### Very negatively
 
 People become jaded and leave. Possible reasons:
 
