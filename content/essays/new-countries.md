@@ -8,11 +8,11 @@ draft: false
 
 
 
-Balajis has [recently proposed](https://1729.com/how-to-start-a-new-country/#task) how futuristic countries may come about. This seems enabled by a combination of dissatisfaction at existing governments[1] and new technologies (blockchains and cryptocurrencies, in particular) which are prompting ideas of radically different social structures. It's an interesting and thought-provoking idea.
+[@balajis](https://twitter.com/balajis/) has [recently proposed](https://1729.com/how-to-start-a-new-country/#task) how futuristic countries may come about. This seems enabled by a combination of dissatisfaction at existing governments[1] and new technologies (blockchains and cryptocurrencies, in particular) which are prompting ideas of radically different social structures. It's an interesting and thought-provoking idea.
 
-In March 2021, [Balajis spoke with Tim Ferris](https://tim.blog/2021/03/24/balaji-srinivasan/) for _over 3 hours_ (one of Tim's longest interviews) about this and several other mind-bending topics, reaching _millions_ of listeners. This episode might go on to become one of his most important episodes. Or possibly the most comical. Either way, why should society remain the way it is now anyway? Of course it'll change. And since innovation seems to [happen simultanously](https://en.wikipedia.org/wiki/Multiple_discovery), there are probably other people thinking about crazy new country structures[2].
+In March 2021, [Balaji spoke with Tim Ferris](https://tim.blog/2021/03/24/balaji-srinivasan/) for _over 3 hours_ (one of Tim's longest interviews) about this and several other mind-bending topics, reaching _millions_ of listeners. This episode might go on to become one of his most important episodes. Or possibly the most comical. Either way, why should society remain the way it is now anyway? Of course it'll change. And since innovation seems to [happen simultanously](https://en.wikipedia.org/wiki/Multiple_discovery), there are probably other people thinking about crazy new country structures[2].
 
-**So what's Balajis (and friends) doing?**
+**So what's Balaji (and friends) doing?**
 
 He has a new project called [1729](1729.com/). It's a kind of community, and I'm intrigued.
 
@@ -53,7 +53,7 @@ People become jaded and leave. Possible reasons:
 
 ## Metrics
 
-Balajis includes some metrics for his country.
+Balaji includes some metrics for his country.
 
 ### Population
 
@@ -106,7 +106,7 @@ What could we throw away?
 Where will it be?
 
 * When this thing is reified, where will it physically be? Which countries will allow such a self-governing state to exist in their territory?
-* One option to start: take, for example, a small US state, and convince enough people of influence there to join, so that, over time, this state effectively _turns into_ the Balajis-state. The new state would have to abide by the same federal laws, but internally would be full of the new state values and culture. This probably isn't optimal as US immigration laws will prevent many people from taking part.
+* One option to start: take, for example, a small US state, and convince enough people of influence there to join, so that, over time, this state effectively _turns into_ the Balaji-state. The new state would have to abide by the same federal laws, but internally would be full of the new state values and culture. This probably isn't optimal as US immigration laws will prevent many people from taking part.
 * Instead of congregating in one place, the more likely (and simpler) scenario is that this society would congregate in multiple physical places simultaneously. This could begin with local meetups over the next year or two. The people attending those meetups would be the early-adopters, and those keen to build, so would probably be keen to, for example, move close together, begin working together in spare time, etc.
 
 How soon could this all happen?
