@@ -29,13 +29,6 @@ export default function (Vue, { router, head, isClient }) {
   // Add moment
   Vue.prototype.moment = moment;
 
-  head.script.push({
-    "data-website-id": "1de9d55d-b712-4d7b-b7ac-bcd023e98d21",
-    async: true,
-    defer: true,
-    src: "https://rmhsilva-analytics-porcupine53.herokuapp.com/umami.js",
-  });
-
   head.link.push({
     rel: "stylesheet",
     href:
